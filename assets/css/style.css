@@ -109,14 +109,15 @@ body {
     font-size: 3.2rem;
     margin: 0 30px;
     transition: all 0.5s;
+    text-align: center;
 }
 
 .btn-big::after {
     content: attr(data-type);
     font-size: 1rem;
     color: #445361;
-    position: relative;
-    left: -0.5em;
+    margin-left: -20%;
+    margin-right: -20%;
 }
 
 .btn-blue {
