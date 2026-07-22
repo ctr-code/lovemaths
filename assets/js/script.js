@@ -62,12 +62,26 @@
         const answer = document.getElementById("answer-box").value;
         if (answer !== "") {
             if (parseInt(answer) === currentGame.result) {
-                document.getElementById("correct").innerText++;
+                updateScore("correct");
                 initialiseGame(currentGame.type);
             } else {
-                document.getElementById("incorrect").innerText++;
-                document.getElementById("answer-box").focus();
+                updateScore("incorrect");
             }
         }
+        document.getElementById("answer-box").focus();
+    }
+
+    function updateScore(id) {
+        const score = document.getElementById(id);
+        score.innerText++;
+        // Highlight the updated score with an animation
+        score.previousElementSibling.animate(
+            [
+                { opacity: 0 }, // 0%
+                { opacity: 1 }, // 50%
+                { padding: "10rem", translate: "-9rem -9rem", opacity: 0 } // 100%
+            ],
+            250
+        );
     }
 })();
