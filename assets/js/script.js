@@ -11,6 +11,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById("submit").addEventListener("click", checkAnswer);
 
+    document.addEventListener("keydown", function (e) {
+        if (!e.shiftKey && !e.ctrlKey && !e.altKey && e.key === "Enter") {
+            checkAnswer();
+        }
+    });
+
     initialiseGame("add");
 });
 
