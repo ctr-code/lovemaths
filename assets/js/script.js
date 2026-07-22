@@ -3,7 +3,8 @@
 // Use a function to avoid polluting the global namespace
 (function () {
 
-    var currentGame;
+    let currentGame,
+        answerBox;
 
     document.addEventListener("DOMContentLoaded", function () {
         const buttons = document.querySelectorAll(".btn-big");
@@ -14,9 +15,12 @@
             });
         }
 
+
         document.getElementById("submit").addEventListener("click", checkAnswer);
 
-        document.getElementById("answer-box").addEventListener("keydown", function (e) {
+        answerBox = document.getElementById("answer-box");
+        answerBox.addEventListener("input", resetWrong);
+        answerBox.addEventListener("keydown", function (e) {
             if (!e.shiftKey && !e.ctrlKey && !e.altKey && e.key === "Enter") {
                 e.preventDefault();
                 checkAnswer();
@@ -32,8 +36,9 @@
         document.getElementById("operand1").innerText = game.op1;
         document.getElementById("operand2").innerText = game.op2;
         document.getElementById("operator").innerHTML = game.op;
-        document.getElementById("answer-box").value = "";
-        document.getElementById("answer-box").focus();
+        answerBox.value = "";
+        answerBox.focus();
+        resetWrong();
 
         currentGame = game;
     }
@@ -59,16 +64,22 @@
     }
 
     function checkAnswer() {
-        const answer = document.getElementById("answer-box").value;
+        const answer = answerBox.value;
         if (answer !== "") {
             if (parseInt(answer) === currentGame.result) {
                 updateScore("correct");
                 initialiseGame(currentGame.type);
             } else {
                 updateScore("incorrect");
+                document.getElementById("wrong").classList.remove("hidden");
             }
         }
-        document.getElementById("answer-box").focus();
+        answerBox.select();
+        answerBox.focus();
+    }
+
+    function resetWrong() {
+        document.getElementById("wrong").classList.add("hidden");
     }
 
     function updateScore(id) {

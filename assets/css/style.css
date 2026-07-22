@@ -1,3 +1,9 @@
+/* Utility class */
+
+.hidden {
+    visibility: hidden;
+}
+
 /* Global style */
 
 body {
@@ -34,7 +40,7 @@ body {
 }
 
 .question-area {
-    width: 50%;
+    width: 75%;
     font-size: 2rem;
     margin: auto;
     padding: 50px 0;
@@ -76,7 +82,9 @@ body {
     display: inline-block;
     height: 40px;
     width: 80px;
-    font-size: 1.2rem;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 4px;
 }
 
 .scores {
@@ -97,6 +105,11 @@ body {
 
 .glow-green {
     background: radial-gradient(circle at center, #fff7 0, #7f77 95%, #fff0 100%);
+}
+
+#wrong {
+    color: red;
+    position: absolute;
 }
 
 /* Buttons */
