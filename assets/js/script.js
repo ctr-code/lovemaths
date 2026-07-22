@@ -53,10 +53,12 @@ function makeGame(gameType) {
 
 function checkAnswer() {
     const answer = document.getElementById("answer-box").value;
-    if (parseInt(answer) === currentGame.result) {
-        document.getElementById("correct").innerText++;
-        initialiseGame(currentGame.type);
-    } else {
-        document.getElementById("incorrect").innerText++;
+    if (answer !== "") {
+        if (parseInt(answer) === currentGame.result) {
+            document.getElementById("correct").innerText++;
+            initialiseGame(currentGame.type);
+        } else {
+            document.getElementById("incorrect").innerText++;
+        }
     }
 }
