@@ -43,7 +43,7 @@ function makeGame(gameType) {
         case "add":
             return make(num1, num2, num1 + num2, "+");
         case "subtract":
-            return make(num1, num2, num1 - num2, "-");
+            return make(num1 + num2, num2, num1, "-");
         case "multiply":
             return make(num1, num2, num1 * num2, "&times;");
         case "divide":
