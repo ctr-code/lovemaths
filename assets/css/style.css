@@ -84,30 +84,18 @@ body {
     padding: 25px;
 }
 
-/* These spans contain a glow span and a score span */
-.glow-red,
-.glow-green {
-    display: inline-block;
-    position: relative;
-    width: 1em;
-}
-
-/* Properties for the glow spans */
-.glow-red > span:first-child,
-.glow-green > span:first-child {
+.glow {
     position: absolute;
     border-radius: 50%;
     padding: 0px;
     opacity: 0;
 }
 
-/* Properties for the red glow span */
-.glow-red > span:first-child {
+.glow-red {
     background: radial-gradient(circle at center, #fff7 0, #f777 95%, #fff0 100%);
 }
 
-/* Properties for the green glow span */
-.glow-green > span:first-child {
+.glow-green {
     background: radial-gradient(circle at center, #fff7 0, #7f77 95%, #fff0 100%);
 }
 
