@@ -16,8 +16,9 @@
 
         document.getElementById("submit").addEventListener("click", checkAnswer);
 
-        document.addEventListener("keydown", function (e) {
+        document.getElementById("answer-box").addEventListener("keydown", function (e) {
             if (!e.shiftKey && !e.ctrlKey && !e.altKey && e.key === "Enter") {
+                e.preventDefault();
                 checkAnswer();
             }
         });
@@ -32,6 +33,7 @@
         document.getElementById("operand2").innerText = game.op2;
         document.getElementById("operator").innerHTML = game.op;
         document.getElementById("answer-box").value = "";
+        document.getElementById("answer-box").focus();
 
         currentGame = game;
     }
@@ -64,6 +66,7 @@
                 initialiseGame(currentGame.type);
             } else {
                 document.getElementById("incorrect").innerText++;
+                document.getElementById("answer-box").focus();
             }
         }
     }
